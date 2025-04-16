@@ -21,9 +21,9 @@ function FeedbackFormContainer() {
     setIsLoading(true);
     try {
       const response = await axios.get<ApiResponse>("/api/get-user-subjects");
-
+      console.log("first", response);
       if (response?.data?.subjects) {
-        setSubjects(response?.data?.subjects!);
+        setSubjects(response.data.subjects);
       }
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
